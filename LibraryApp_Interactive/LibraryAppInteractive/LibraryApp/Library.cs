@@ -1,4 +1,4 @@
-namespace LibraryAppInteractive;
+ namespace LibraryAppInteractive;
 
 /// <summary>
 /// Defines the Library class used to manage the library books and assets.
