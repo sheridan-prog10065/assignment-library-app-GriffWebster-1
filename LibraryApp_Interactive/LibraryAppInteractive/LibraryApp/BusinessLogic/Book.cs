@@ -11,12 +11,6 @@ public class Book
     private List<string> _bookAuthorList;
     private List<LibraryAsset> _libAssetList;
 
-    public Book(string bookName, string bookISBN)
-    {
-        _bookName = bookName;
-        _bookISBN = bookISBN;
-    }
-
     public string Name
     {
         get { return _bookName; }
@@ -32,7 +26,6 @@ public class Book
     public List<string> Authors
     {
         get { return _bookAuthorList;  }
-        set { _bookAuthorList = value; }
     }
 
     public IEnumerable<LibraryAsset> Assets
@@ -41,6 +34,17 @@ public class Book
 
     }
 
+    public Book(string bookName, string bookISBN)
+    {
+        _bookName = bookName;
+        _bookISBN = bookISBN;
+        _bookAuthorList = Authors;
+        _libAssetList = new List<LibraryAsset>();
+    }
 
+    public void AddAsset(LibraryAsset asset)
+    {
+        _libAssetList.Add(asset);
+    }
 
 }
