@@ -33,7 +33,16 @@ public class Library
 
     private void CreateDefaultBooks()
     {
+        if (_bookList.Count > 0)
+        {
+            return;
+        }
 
+        RegisterBook("Harry Potter", "9375628463184", new string[] { "J.K. Rowling" }, BookType.Paper, 5);
+
+        RegisterBook("Dune", "9373640129403", new string[] { "Frank Herbert" }, BookType.Digital, 5);
+
+        RegisterBook("The Quran", "9286005439111", new string[] { "n/a" }, BookType.Paper, 5);
     }
 
     private int DetermineLibID()
