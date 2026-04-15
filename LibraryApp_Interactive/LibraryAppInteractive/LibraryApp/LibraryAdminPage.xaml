@@ -5,8 +5,34 @@
              x:Class="LibraryAppInteractive.LibraryAdminPage"
              Title="Manage Book Assets">
     <ContentPage.Content>
-        <Label Text="Library Admin page for the Interactive Library App"
-               HorizontalOptions="Center"
-               VerticalOptions="Center"/>         
+        <VerticalStackLayout>
+            <Label Text="Library Admin Page"
+                   FontSize="Large"/>
+            
+            <!-- Register Book Section-->
+            <VerticalStackLayout
+                Spacing="15">
+                <Label Text="Register Book"/>
+
+                <Entry x:Name="AdminBookNameEntry"
+                       Placeholder="Enter Book Name"/>
+
+                <Entry x:Name="AdminAuthorsEntry"
+                           Placeholder="Enter author(s)"/>
+
+                <Entry x:Name="AdminIsbnEntry"
+                           Placeholder="Enter ISBN"/>
+
+                <Entry x:Name="AdminAssetCountEntry"
+                           Placeholder="Enter number of assets"
+                           Keyboard="Numeric" />
+
+                <Button x:Name="RegisterBookButton"
+                            Text="Register Book"
+                        Clicked="_btnRegisterBookClicked"/>
+            </VerticalStackLayout>
+            
+            
+        </VerticalStackLayout>
     </ContentPage.Content>
 </ContentPage>

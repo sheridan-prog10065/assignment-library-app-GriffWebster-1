@@ -12,4 +12,10 @@ public partial class LibraryAdminPage : ContentPage
     {        
         InitializeComponent();
     }
+
+    private void _btnRegisterBookClicked(object sender, EventArgs e)
+    {
+
+    }
+
 }
