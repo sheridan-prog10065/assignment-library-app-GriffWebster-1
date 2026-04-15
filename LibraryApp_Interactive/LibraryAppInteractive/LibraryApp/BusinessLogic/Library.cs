@@ -19,46 +19,65 @@ public class Library
     private int _libIDGenoratorSeed;
     private const int DEFAULT_LIBID_START = 100;
 
+    public List<Book> Books
+    {
+        get { return _bookList; }
+    }
 
     public Library()
     {
         _bookList = new List<Book>();
         _libIDGenoratorSeed = DEFAULT_LIBID_START;
-        //CreateDefaultBooks();
+        CreateDefaultBooks();
 
     }
 
-    public List<Book> Books 
-    { 
-        get { return _bookList; } 
-        set { _bookList = value; }
+    /*
+    private int DetermineLibID()
+    {
+
     }
-/*
+    */
+
 private void CreateDefaultBooks()
 {
 
-    new Book ("Harry Potter", "9375628463184", new string[] { "J.K. Rowling" });
+    RegisterBook("Harry Potter", "9375628463184", new string[] { "J.K. Rowling" }, BookType.Paper, 5);
 
-    RegisterBook("Dune", "9373640129403", new string[] { "Frank Herbert" }, BookType.Digital);
+    RegisterBook("Dune", "9373640129403", new string[] { "Frank Herbert" }, BookType.Digital, 5);
 
-    RegisterBook("The Quran", "9286005439111", new string[] { "n/a" }, BookType.Paper);
+    RegisterBook("The Quran", "9286005439111", new string[] { "n/a" }, BookType.Paper, 5);
 }
 
 
 
-    /*
+   
     
 
     public Book RegisterBook(string bookName, string bookISBN, string[] authors, BookType bookType, int nCopies)
-    { 
-
-    }
-
-    /*
-      
-      private int DetermineLibID()
     {
-    
+        List<string> authorList = new List<string>(authors);
+        Book newBook;
+
+        if (bookType == BookType.Paper)
+        {
+            newBook = new PaperBook(bookName, bookISBN, authors);
+        }
+        else //(bookType == BookType.Digital)
+        {
+            newBook = new DigitalBook(bookName, bookISBN, authors);
+        }
+        /*
+        else
+        {
+            throw new Exeption();
+        }
+        */
+
+        _bookList.Add(newBook);
+
+        return newBook;
+
     }
 
     /*
@@ -73,4 +92,6 @@ public Book FindBookByISBN(string bookISBN)
 
 }
 */
+
+
 }

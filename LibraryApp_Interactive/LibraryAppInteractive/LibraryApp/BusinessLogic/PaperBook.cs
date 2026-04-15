@@ -6,7 +6,7 @@ namespace LibraryAppInteractive.BusinessLogic;
 
 public class PaperBook : Book
 {
-    public PaperBook(string bookName, string bookISBN) : base(bookName, bookISBN)
+    public PaperBook(string bookName, string bookISBN, string[] authors) : base(bookName, bookISBN, authors)
     {
     }
 }
