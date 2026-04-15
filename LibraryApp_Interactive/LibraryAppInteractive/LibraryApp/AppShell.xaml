@@ -6,7 +6,6 @@
     xmlns:local="clr-namespace:LibraryAppInteractive"
     Shell.FlyoutBehavior="Disabled">
 
-    <!--
     <TabBar>
         <Tab Title="Browse" Icon="library.png">
             <ShellContent
@@ -19,6 +18,5 @@
                 Route="LibraryAdminPage" />    
         </Tab>
     </TabBar>
-    -->
 
 </Shell>

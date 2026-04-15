@@ -80,35 +80,18 @@ private void CreateDefaultBooks()
 
     }
 
-    //Got ai help with the finding functionality
+    /*
+
 public Book FindBookByName(string bookName)
 {
-        foreach (Book book in _bookList)
-        {
-            if (book.Name.ToLower() == bookName.ToLower())
-            { 
-                return book;
-            }
-        }
-
-        return null;
 
 }
 
 public Book FindBookByISBN(string bookISBN)
 {
-        foreach (Book book in _bookList)
-        {
-            if (book.ISBN == bookISBN)
-            {
-                return book;
-            }
-        }
 
-        return null;
-
-    }
-
+}
+*/
 
 
 }
