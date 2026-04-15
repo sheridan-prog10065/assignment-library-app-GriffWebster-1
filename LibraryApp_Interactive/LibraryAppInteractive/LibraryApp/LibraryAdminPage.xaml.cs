@@ -16,7 +16,6 @@ public partial class LibraryAdminPage : ContentPage
     {
         InitializeComponent();
 
-        _library = new Library();
         DisplayBooks();
     }
 
@@ -25,17 +24,20 @@ public partial class LibraryAdminPage : ContentPage
         InitializeComponent();
 
         _library = library;
+        _pckBookType.SelectedIndex = 0;
         DisplayBooks();
     }
 
     private void DisplayBooks()
     {
+        
         System.Diagnostics.Debug.WriteLine("Book count: " + _library.Books.Count);
 
         foreach (Book book in _library.Books)
         {
             System.Diagnostics.Debug.WriteLine(book.ToString());
         }
+        
 
         AssetsCollectionView.ItemsSource = null;
         AssetsCollectionView.ItemsSource = _library.Books;
@@ -52,11 +54,12 @@ public partial class LibraryAdminPage : ContentPage
 
             int assetNum = int.Parse(_txtAssetNum.Text);
 
+        //asked ai how to convert the recieved string input of the picker to the corresponding BookType
         Library.BookType selectedBookType = Enum.Parse<Library.BookType>(_pckBookType.SelectedItem.ToString());
 
         _library.RegisterBook(bookName, bookISBN, authors, selectedBookType, assetNum);
 
         DisplayBooks();
     }
-    }
+}
 

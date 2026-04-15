@@ -23,10 +23,10 @@
                            FontSize="20"
                            FontAttributes="Bold" />
 
-                    <Entry x:Name="BookNameEntry"
+                    <Entry x:Name="_txtSelectName"
                            Placeholder="Enter book name" />
 
-                    <Entry x:Name="BookIsbnEntry"
+                    <Entry x:Name="_txtSelectISBN"
                            Placeholder="Enter book ISBN" />
 
                     <Button x:Name="SearchBookButton"
