@@ -34,11 +34,11 @@ public class Book
 
     }
 
-    public Book(string bookName, string bookISBN)
+    public Book(string bookName, string bookISBN, string[] authors)
     {
         _bookName = bookName;
         _bookISBN = bookISBN;
-        _bookAuthorList = Authors;
+        _bookAuthorList = new List<string>(authors);
         _libAssetList = new List<LibraryAsset>();
     }
 
@@ -47,4 +47,9 @@ public class Book
         _libAssetList.Add(asset);
     }
 
+    public override string ToString()
+    {
+        string authorText = string.Join(", ", _bookAuthorList);
+        return $"{_bookName} ISBN: {_bookISBN} by {authorText}";
+    }
 }
