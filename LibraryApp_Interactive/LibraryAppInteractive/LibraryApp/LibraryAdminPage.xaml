@@ -16,20 +16,30 @@
                 Padding="15">
                 <Label Text="Register Book"/>
 
-                <Entry x:Name="AdminBookNameEntry"
+                <Entry x:Name="_txtName"
                        Placeholder="Enter Book Name"/>
 
-                <Entry x:Name="AdminAuthorsEntry"
+                <Entry x:Name="_txtAuthors"
                            Placeholder="Enter author(s)"/>
 
-                <Entry x:Name="AdminIsbnEntry"
+                    <Entry x:Name="_txtISBN"
                            Placeholder="Enter ISBN"/>
 
-                <Entry x:Name="AdminAssetCountEntry"
+                <Entry x:Name="_txtAssetNum"
                            Placeholder="Enter number of assets"
                            Keyboard="Numeric" />
 
-                <Button x:Name="RegisterBookButton"
+                    <Picker x:Name="_pckBookType"
+                        Title="{OnPlatform MacCatalyst='', Default='Select the book type'}">
+                        <Picker.Items>
+                            <x:String>Paper</x:String>
+                            <x:String>Digital</x:String>
+                            <x:String>Audio</x:String>
+                        </Picker.Items>
+                    </Picker>
+
+
+                    <Button x:Name="RegisterBookButton"
                             Text="Register Book"
                         Clicked="OnRegisterBook"/>
 

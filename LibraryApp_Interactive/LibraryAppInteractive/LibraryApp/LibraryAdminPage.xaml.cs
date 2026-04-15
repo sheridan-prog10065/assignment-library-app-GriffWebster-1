@@ -40,9 +40,23 @@ public partial class LibraryAdminPage : ContentPage
         AssetsCollectionView.ItemsSource = null;
         AssetsCollectionView.ItemsSource = _library.Books;
     }
-    private void OnRegisterBook(object sender, EventArgs e)
+    private async void OnRegisterBook(object sender, EventArgs e)
     {
+            string bookName = (string)_txtName.Text;
+            string bookISBN = _txtISBN.Text;
+            string[] authors = _txtAuthors.Text
+            //used ai to help get the entry for authors because it is a list and cant just be taken as a string
+            .Split(',', StringSplitOptions.RemoveEmptyEntries)
+            .Select(author => author.Trim())
+            .ToArray();
 
+            int assetNum = int.Parse(_txtAssetNum.Text);
+
+        Library.BookType selectedBookType = Enum.Parse<Library.BookType>(_pckBookType.SelectedItem.ToString());
+
+        _library.RegisterBook(bookName, bookISBN, authors, selectedBookType, assetNum);
+
+        DisplayBooks();
+    }
     }
 
-}
