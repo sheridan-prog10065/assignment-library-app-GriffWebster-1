@@ -3,8 +3,108 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LibraryAppInteractive.LibraryBrowsePage"
              Title="Browse Interactive Library">
-			 
-	<Label Text="Browse Library page for the Interactive Library App"
-	       HorizontalOptions="Center"
-	       VerticalOptions="Center"/> 
+
+    <!-- -->
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <!-- Title -->
+            <Label Text="Library Browse"
+                   FontSize="28"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
+
+            <!-- Select Book -->
+            <Border StrokeThickness="1" Padding="15">
+                <VerticalStackLayout Spacing="12">
+
+                    <Label Text="Select Book"
+                           FontSize="20"
+                           FontAttributes="Bold" />
+
+                    <Entry x:Name="BookNameEntry"
+                           Placeholder="Enter book name" />
+
+                    <Entry x:Name="BookIsbnEntry"
+                           Placeholder="Enter book ISBN" />
+
+                    <Button x:Name="SearchBookButton"
+                            Text="Search Book" />
+
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Book Details -->
+            <Border StrokeThickness="1" Padding="15">
+                <VerticalStackLayout Spacing="10">
+
+                    <Label Text="Book Details"
+                           FontSize="20"
+                           FontAttributes="Bold" />
+
+                    <Label Text="Book Name:" FontAttributes="Bold"/>
+                    <Label x:Name="BookNameLabel"
+                           Text="No book selected" />
+
+                    <Label Text="Author(s):" FontAttributes="Bold"/>
+                    <Label x:Name="BookAuthorsLabel"
+                           Text="-" />
+
+                    <Label Text="ISBN:" FontAttributes="Bold"/>
+                    <Label x:Name="BookIsbnLabel"
+                           Text="-" />
+
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Book Menu -->
+            <Border StrokeThickness="1" Padding="15">
+                <VerticalStackLayout Spacing="12">
+
+                    <Label Text="Book Menu"
+                           FontSize="20"
+                           FontAttributes="Bold" />
+
+                    <Button x:Name="CheckStatusButton"
+                            Text="Check Status" />
+
+                    <Button x:Name="BorrowBookButton"
+                            Text="Borrow Book" />
+
+                    <Button x:Name="ReturnBookButton"
+                            Text="Return Book" />
+
+                    <Button x:Name="DisplayAssetsButton"
+                            Text="Display Book Assets" />
+
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Asset Inventory -->
+            <Border StrokeThickness="1" Padding="15">
+                <VerticalStackLayout Spacing="10">
+
+                    <Label Text="Library Asset Inventory"
+                           FontSize="20"
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center" />
+
+                    <CollectionView x:Name="AssetsCollectionView"
+                                    HeightRequest="250"
+                                    SelectionMode="None">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Border StrokeThickness="1" Padding="10">
+                                    <Label Text="{Binding .}" />
+                                </Border>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+                </VerticalStackLayout>
+            </Border>
+
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

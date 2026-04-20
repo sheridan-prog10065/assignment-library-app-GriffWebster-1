@@ -5,8 +5,71 @@
              x:Class="LibraryAppInteractive.LibraryAdminPage"
              Title="Manage Book Assets">
     <ContentPage.Content>
-        <Label Text="Library Admin page for the Interactive Library App"
-               HorizontalOptions="Center"
-               VerticalOptions="Center"/>         
+        <ScrollView>
+            <VerticalStackLayout>
+            <Label Text="Library Admin Page"
+                   FontSize="Large"/>
+            
+            <!-- Register Book Section-->
+            <VerticalStackLayout
+                Spacing="15"
+                Padding="15">
+                <Label Text="Register Book"/>
+
+                <Entry x:Name="_txtName"
+                       Placeholder="Enter Book Name"/>
+
+                <Entry x:Name="_txtAuthors"
+                           Placeholder="Enter author(s)"/>
+
+                    <Entry x:Name="_txtISBN"
+                           Placeholder="Enter ISBN"/>
+
+                <Entry x:Name="_txtAssetNum"
+                           Placeholder="Enter number of assets"
+                           Keyboard="Numeric" />
+
+                    <Picker x:Name="_pckBookType"
+                        Title="{OnPlatform MacCatalyst='', Default='Select the book type'}">
+                        <Picker.Items>
+                            <x:String>Paper</x:String>
+                            <x:String>Digital</x:String>
+                            <x:String>Audio</x:String>
+                        </Picker.Items>
+                    </Picker>
+
+
+                    <Button x:Name="RegisterBookButton"
+                            Text="Register Book"
+                        Clicked="OnRegisterBook"/>
+
+                <!-- Asset Inventory -->
+                <Border StrokeThickness="1" Padding="15">
+                    <VerticalStackLayout Spacing="10">
+
+                        <Label Text="Library Inventory"
+                           FontSize="20"
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center" />
+
+                        <CollectionView x:Name="AssetsCollectionView"
+                                    HeightRequest="250"
+                                    SelectionMode="None">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Border StrokeThickness="1" Padding="10">
+                                        <Label Text="{Binding .}" />
+                                    </Border>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+
+                    </VerticalStackLayout>
+                </Border>
+            </VerticalStackLayout>
+            
+            
+        </VerticalStackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
