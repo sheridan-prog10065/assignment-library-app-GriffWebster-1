@@ -32,15 +32,12 @@ public class Library
 
     }
 
-    //declaring nextID to be +1 of DEFAULT_LIBID_START and +1 of the ID after that and so on
+    /*
     private int DetermineLibID()
     {
-        int nextID = _libIDGenoratorSeed;
-        _libIDGenoratorSeed++;
-        return nextID;
 
     }
-    
+    */
 
 private void CreateDefaultBooks()
 {
@@ -59,10 +56,6 @@ private void CreateDefaultBooks()
 
     public Book RegisterBook(string bookName, string bookISBN, string[] authors, BookType bookType, int nCopies)
     {
-
-
-
-
         List<string> authorList = new List<string>(authors);
         Book newBook;
 
@@ -80,13 +73,6 @@ private void CreateDefaultBooks()
             throw new Exeption();
         }
         */
-
-        //Number of assets created from the ammount of nCopies
-        for (int i = 0; i < nCopies; i++)
-        {
-            LibraryAsset newAsset = new LibraryAsset(newBook, DetermineLibID());
-            newBook.AddAsset(newAsset);
-        }
 
         _bookList.Add(newBook);
 
@@ -121,8 +107,8 @@ public Book FindBookByISBN(string bookISBN)
 
         return null;
 
-    }
-
+}
+*/
 
 
 }

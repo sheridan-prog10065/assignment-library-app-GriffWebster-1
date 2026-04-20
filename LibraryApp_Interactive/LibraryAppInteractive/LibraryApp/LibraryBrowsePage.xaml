@@ -23,15 +23,14 @@
                            FontSize="20"
                            FontAttributes="Bold" />
 
-                    <Entry x:Name="_txtSelectName"
+                    <Entry x:Name="BookNameEntry"
                            Placeholder="Enter book name" />
 
-                    <Entry x:Name="_txtSelectISBN"
+                    <Entry x:Name="BookIsbnEntry"
                            Placeholder="Enter book ISBN" />
 
                     <Button x:Name="SearchBookButton"
-                            Text="Search Book"
-                            Clicked="OnSearchBook"/>
+                            Text="Search Book" />
 
                 </VerticalStackLayout>
             </Border>
@@ -68,29 +67,40 @@
                            FontAttributes="Bold" />
 
                     <Button x:Name="CheckStatusButton"
-                            Text="Check Status"
-                            Clicked="OnCheckStatusClicked"/>
+                            Text="Check Status" />
 
                     <Button x:Name="BorrowBookButton"
-                            Text="Borrow Book" 
-                            Clicked="OnBorrowBook"/>
+                            Text="Borrow Book" />
 
-                    <Entry x:Name="_txtReturnAssetID"
-       Placeholder="Enter asset ID to return"
-       Keyboard="Numeric" />
-                    
                     <Button x:Name="ReturnBookButton"
-                            Text="Return Book"
-                            Clicked="OnReturnBook"/>
+                            Text="Return Book" />
 
-                    <Button x:Name="DisplayBookAssetsButton"
-                            Text="Display selected book assets"
-                            Clicked="OnDisplayBookAssets" />
+                    <Button x:Name="DisplayAssetsButton"
+                            Text="Display Book Assets" />
 
-                    <CollectionView x:Name="AssetDisplayView"
-                                    IsVisible="False"
-                                    />
+                </VerticalStackLayout>
+            </Border>
 
+            <!-- Asset Inventory -->
+            <Border StrokeThickness="1" Padding="15">
+                <VerticalStackLayout Spacing="10">
+
+                    <Label Text="Library Asset Inventory"
+                           FontSize="20"
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center" />
+
+                    <CollectionView x:Name="AssetsCollectionView"
+                                    HeightRequest="250"
+                                    SelectionMode="None">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Border StrokeThickness="1" Padding="10">
+                                    <Label Text="{Binding .}" />
+                                </Border>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
 
                 </VerticalStackLayout>
             </Border>
