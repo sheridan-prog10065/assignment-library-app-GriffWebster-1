@@ -10,10 +10,11 @@ public struct LoanPeriod
     private DateTime _returnedOn;
     private DateTime _dueDate;
 
-    public LoanPeriod(DateTime borrowedOn, DateTime returnedOn) 
+    public LoanPeriod(DateTime borrowedOn, DateTime returnedOn, DateTime dueDate) 
     { 
         _borrowedOn = borrowedOn;
         _returnedOn = returnedOn;
+        _dueDate = dueDate;
     }
 
     public DateTime BorrowedOn
@@ -38,7 +39,15 @@ public struct LoanPeriod
 
     public TimeSpan LatePeriod
     {
-        get { return _returnedOn - _dueDate; }
+        get { 
+                if (_returnedOn > _dueDate)
+                {
+                return _returnedOn - _dueDate;
+
+                }
+
+            return TimeSpan.Zero;
+            }
     }
 
 

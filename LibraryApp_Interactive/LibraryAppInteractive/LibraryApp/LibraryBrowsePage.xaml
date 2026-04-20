@@ -68,16 +68,29 @@
                            FontAttributes="Bold" />
 
                     <Button x:Name="CheckStatusButton"
-                            Text="Check Status" />
+                            Text="Check Status"
+                            Clicked="OnCheckStatusClicked"/>
 
                     <Button x:Name="BorrowBookButton"
-                            Text="Borrow Book" />
+                            Text="Borrow Book" 
+                            Clicked="OnBorrowBook"/>
 
+                    <Entry x:Name="_txtReturnAssetID"
+       Placeholder="Enter asset ID to return"
+       Keyboard="Numeric" />
+                    
                     <Button x:Name="ReturnBookButton"
-                            Text="Return Book" />
+                            Text="Return Book"
+                            Clicked="OnReturnBook"/>
 
-                    <Button x:Name="DisplayAssetsButton"
-                            Text="Display Book Assets" />
+                    <Button x:Name="DisplayBookAssetsButton"
+                            Text="Display selected book assets"
+                            Clicked="OnDisplayBookAssets" />
+
+                    <CollectionView x:Name="AssetDisplayView"
+                                    IsVisible="False"
+                                    />
+
 
                 </VerticalStackLayout>
             </Border>
