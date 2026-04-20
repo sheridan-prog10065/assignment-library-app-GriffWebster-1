@@ -25,9 +25,12 @@ public partial class LibraryBrowsePage : ContentPage
         DisplayBooks();
     }
 
-    private void DisplayBooks()
-    {
-        System.Diagnostics.Debug.WriteLine("Book count: " + _library.Books.Count);
+
+
+    public void OnSearchBook(object sender, EventArgs e)
+        {
+            string enteredName = _txtSelectName.Text;
+            string enteredISBN = _txtSelectISBN.Text;
 
         foreach (Book book in _library.Books)
         {
